@@ -3,93 +3,97 @@ import logging
 #logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile_kalkulator.log")
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
 
-def konwertuj(text, typ):
-    liczba = input(text)
+def convert(text, required_type):
+    figure = input(text)
     check = False
     while check == False:
         try:
-            liczba = typ(liczba)
+            figure = required_type(figure)
             check = True
         except:
-            liczba = (input("Błąd wprowadzenia." + text))
-    return liczba
+            figure = (input("Błąd wprowadzenia." + text))
+    return figure
 
 
-def mnoz_liste(lista) : 
-    wynik = 1
-    for liczba in lista:
-        wynik = wynik * liczba
-    return wynik
+def product_list(lista) : 
+    result = 1
+    for figure in lista:
+        result = result * figure
+    return result
 
 
-def kalkulator(dzialanie, liczba1, liczba2):
-    wynik = [None, None, None]
-    liczby = [liczba1, liczba2]
+def calculator(math_operation, figure1, figure2):
+    result = {
+        "result": None,
+        "operation": None,
+        "figures": None
+    }
+    figures = [figure1, figure2]
  # Dodawanie   
-    if dzialanie == 1:
-#alternatywą (pewnie trochę lepszą) było by przeniesienie inputu tutaj i zapytanie użyttkownika ile licz chce dodawać [mnożyć] i zapętlić pytanie tyle razy żeby podał te liczby
+    if math_operation == 1:
+#alternatywą (pewnie trochę lepszą) było by przeniesienie inputu tutaj i zapytanie użyttkownika ile licz chce dodawać [mnożyć] i zapętlić pytanie tyle razy żeby podał te figures
 # wtedy nie trzeba by pytać czy chce kolejną
-        wynik[1] = "Dodaje"
+        result["operation"] = "Dodaje"
         odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
-            liczby.append(konwertuj("podaj kolejna ", float))
+            figures.append(convert("podaj kolejna ", float))
             odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
-        wynik[0] = sum(liczby)          
+        result["result"] = sum(figures)          
 # Odejmowanie
-    elif dzialanie == 2:
-        wynik[0] = liczba1 - liczba2
-        wynik[1] = "Odejmuje"
+    elif math_operation == 2:
+        result["result"] = figure1 - figure2
+        result["operation"] = "Odejmuje"
 # Mnożenie
-    elif dzialanie == 3:
-        wynik[1] = "Mnoże"
+    elif math_operation == 3:
+        result["operation"] = "Mnoże"
         odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
-            liczby.append(konwertuj("podaj kolejna ", float))
+            figures.append(convert("podaj kolejna ", float))
             odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
-        wynik[0] = mnoz_liste(liczby)          
+        result["result"] = product_list(figures)          
 # Dzielenie
-    elif dzialanie == 4:
-        if liczba2 == 0:
-            wynik[0] = "Nie dzieli się przez zero"
-            wynik[1] = "Chciałem dzielic ale użytkownik podał 0"
+    elif math_operation == 4:
+        if figure2 == 0:
+            result["result"] = "Nie dzieli się przez zero"
+            result["operation"] = "Chciałem dzielic ale użytkownik podał 0"
         else:
-            wynik[0] = liczba1 / liczba2
-            wynik[1] = "Dziele"
+            result["result"] = figure1 / figure2
+            result["operation"] = "Dziele"
 # Inne
     else:
-        wynik[0] = "Nie ma takiego dzialania"
-        wynik[1] = "Inne dzialanie wiec nie wyszło"
-    wynik[2] = liczby
-    return wynik
+        result["result"] = "Nie ma takiego dzialania"
+        result["operation"] = "Inne math_operation wiec nie wyszło"
+    result["figures"] = figures
+    return result
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
-        liczba1 = konwertuj("podaj liczbe1: ", float)
-        liczba2 = konwertuj("podaj liczbe2: ", float)
+        math_operation = convert("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+        figure1 = convert("podaj liczbe1: ", float)
+        figure2 = convert("podaj liczbe2: ", float)
     else:
         try:
-            dzialanie = int(sys.argv[1])
+            math_operation = int(sys.argv[1])
         except:
-            dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+            math_operation = convert("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
         try:
-            liczba1 = float(sys.argv[2])
+            figure1 = float(sys.argv[2])
         except:
-            liczba1 = konwertuj("podaj liczbe1: ", float)
+            figure1 = convert("podaj liczbe1: ", float)
         try:
-            liczba2 = float(sys.argv[3])
+            figure2 = float(sys.argv[3])
         except:
-            liczba2 = konwertuj("podaj liczbe2: ", float)
+            figure2 = convert("podaj liczbe2: ", float)
 else:
-    dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
-    liczba1 = konwertuj("podaj liczbe1: ", float)
-    liczba2 = konwertuj("podaj liczbe2: ", float)
+    math_operation = convert("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+    figure1 = convert("podaj liczbe1: ", float)
+    figure2 = convert("podaj liczbe2: ", float)
 
 
 
-wynik = kalkulator(dzialanie, liczba1, liczba2)
+result = calculator(math_operation, figure1, figure2)
 logging.debug("Program został uruchomiony z następującymi parametrami: %s" % sys.argv[1:])
-logging.debug("%s liczby %s" % (wynik[1], wynik[2]))
+logging.debug("%s liczby %s" % (result["operation"], result["figures"]))
 
-print(f"{wynik[1]} liczby {wynik[2]} co daje {wynik[0]}")
-
+print("%s liczby %s co daje %s" % (result["operation"], result["figures"], result["result"]))
+#print(f"{result["operation"]} figures {result["figures"]} co daje {result["result"]}")
