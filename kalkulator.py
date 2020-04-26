@@ -96,4 +96,3 @@ logging.debug("Program został uruchomiony z następującymi parametrami: %s" % 
 logging.debug("%s liczby %s" % (result["operation"], result["figures"]))
 
 print("%s liczby %s co daje %s" % (result["operation"], result["figures"], result["result"]))
-#print(f"{result["operation"]} figures {result["figures"]} co daje {result["result"]}")
