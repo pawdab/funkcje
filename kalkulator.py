@@ -39,17 +39,24 @@ def kalkulator(dzialanie, liczba1, liczba2):
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        dzialanie = int(input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
-        liczba1 = float(input("podaj liczbe1: "))
-        liczba2 = float(input("podaj liczbe2: "))
+        dzialanie = (input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
+        liczba1 = (input("podaj liczbe1: "))
+        liczba2 = (input("podaj liczbe2: "))
     else:
-        dzialanie = int(sys.argv[1])
-        liczba1 = float(sys.argv[2])
-        liczba2 = float(sys.argv[3])
+        dzialanie = (sys.argv[1])
+        liczba1 = (sys.argv[2])
+        liczba2 = (sys.argv[3])
 else:
-    dzialanie = int(input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
-    liczba1 = float(input("podaj liczbe1: "))
-    liczba2 = float(input("podaj liczbe2: "))
+    dzialanie = (input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
+    liczba1 = (input("podaj liczbe1: "))
+    liczba2 = (input("podaj liczbe2: "))
+
+while: 
+if dzialanie.isnumeric == True:
+    dzialanie = int(dzialanie)
+else:
+    dzialanie = (input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
+
 
 
 wynik = kalkulator(dzialanie, liczba1, liczba2)
