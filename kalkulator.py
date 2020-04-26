@@ -2,6 +2,18 @@ import sys
 import logging
 logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile_kalkulator.log")
 
+def konwertuj(text, typ):
+    liczba = input(text)
+    check = False
+    while check == False:
+        try:
+            liczba = typ(liczba)
+            check = True
+        except:
+            liczba = (input("Błąd wprowadzenia." + text))
+    return liczba
+
+
 def mnoz_liste(lista) : 
     wynik = 1
     for liczba in lista:
@@ -12,14 +24,11 @@ def mnoz_liste(lista) :
 def kalkulator(dzialanie, liczba1, liczba2):
     wynik = [None, None, None]
     liczby = [liczba1, liczba2]
-    #dzialanie = int(dzialanie)
-    #liczba1 = float(liczba1)
-    #liczba2 = float(liczba2)
     if dzialanie == 1:
         wynik[1] = "Dodaje"
         odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
-            liczby.append(float(input("podaj kolejna")))
+            liczby.append(konwertuj("podaj kolejna ", float))
             odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         wynik[0] = sum(liczby)          
     elif dzialanie == 2:
@@ -29,7 +38,7 @@ def kalkulator(dzialanie, liczba1, liczba2):
         wynik[1] = "Mnoże"
         odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
-            liczby.append(float(input("podaj kolejna")))
+            liczby.append(konwertuj("podaj kolejna ", float))
             odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
         wynik[0] = mnoz_liste(liczby)          
     elif dzialanie == 4:
@@ -47,42 +56,17 @@ def kalkulator(dzialanie, liczba1, liczba2):
 
 if __name__ == "__main__":
     if len(sys.argv) < 4:
-        dzialanie = (input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
-        liczba1 = (input("podaj liczbe1: "))
-        liczba2 = (input("podaj liczbe2: "))
+        dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+        liczba1 = konwertuj("podaj liczbe1: ", float)
+        liczba2 = konwertuj("podaj liczbe2: ", float)
     else:
         dzialanie = (sys.argv[1])
         liczba1 = (sys.argv[2])
         liczba2 = (sys.argv[3])
 else:
-    dzialanie = (input("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
-    liczba1 = (input("podaj liczbe1: "))
-    liczba2 = (input("podaj liczbe2: "))
-
-
-check = False
-while check == False:
-    if dzialanie.isnumeric() == True:
-        dzialanie = int(dzialanie)
-        check = True
-    else:
-        dzialanie = (input("Podano zły kod działania. Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie"))
-
-check = False
-while check == False:
-    if liczba1.isnumeric() == True:
-        liczba1 = float(liczba1)
-        check = True
-    else:
-        liczba1 = (input("Podano text zamiast Liczba1. Podaj Liczba1: "))
-
-check = False
-while check == False:
-    if liczba2.isnumeric() == True:
-        liczba2 = float(liczba2)
-        check = True
-    else:
-        liczba2 = (input("Podano text zamiast Liczba2. Podaj Liczba2: "))
+    dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+    liczba1 = konwertuj("podaj liczbe1: ", float)
+    liczba2 = konwertuj("podaj liczbe2: ", float)
 
 
 
