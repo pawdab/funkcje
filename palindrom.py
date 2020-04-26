@@ -1,4 +1,8 @@
 def palindrom(word):
+    """
+    Checks if word is palindorme
+    """
+
     lenght = len(word)
     if lenght == 0:
         print("Brak słowa")
@@ -11,13 +15,12 @@ def palindrom(word):
 
 
 
-print(palindrom("potop i potop"))
+print(palindrom("potop"))
 
 
 
-text = input("Podaj Imie i nazwisko")
+#text = input("Podaj Imie i nazwisko")
+#print("Oto Twój tekst: ***%s***" % text)
 
-print("Oto Twój tekst: ***%s***" % text)
 
-
-help(palindrom("as"))
+help(palindrom)
