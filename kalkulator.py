@@ -25,6 +25,7 @@ def mnoz_liste(lista) :
 def kalkulator(dzialanie, liczba1, liczba2):
     wynik = [None, None, None]
     liczby = [liczba1, liczba2]
+ # Dodawanie   
     if dzialanie == 1:
 #alternatywą (pewnie trochę lepszą) było by przeniesienie inputu tutaj i zapytanie użyttkownika ile licz chce dodawać [mnożyć] i zapętlić pytanie tyle razy żeby podał te liczby
 # wtedy nie trzeba by pytać czy chce kolejną
@@ -34,9 +35,11 @@ def kalkulator(dzialanie, liczba1, liczba2):
             liczby.append(konwertuj("podaj kolejna ", float))
             odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         wynik[0] = sum(liczby)          
+# Odejmowanie
     elif dzialanie == 2:
         wynik[0] = liczba1 - liczba2
         wynik[1] = "Odejmuje"
+# Mnożenie
     elif dzialanie == 3:
         wynik[1] = "Mnoże"
         odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
@@ -44,6 +47,7 @@ def kalkulator(dzialanie, liczba1, liczba2):
             liczby.append(konwertuj("podaj kolejna ", float))
             odpowiedz = input("czy checsz domnożyc kolejną liczbe? [T/N]: ")
         wynik[0] = mnoz_liste(liczby)          
+# Dzielenie
     elif dzialanie == 4:
         if liczba2 == 0:
             wynik[0] = "Nie dzieli się przez zero"
@@ -51,6 +55,7 @@ def kalkulator(dzialanie, liczba1, liczba2):
         else:
             wynik[0] = liczba1 / liczba2
             wynik[1] = "Dziele"
+# Inne
     else:
         wynik[0] = "Nie ma takiego dzialania"
         wynik[1] = "Inne dzialanie wiec nie wyszło"
