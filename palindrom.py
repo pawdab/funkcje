@@ -18,9 +18,4 @@ def palindrom(word):
 print(palindrom("potop"))
 
 
-
-#text = input("Podaj Imie i nazwisko")
-#print("Oto Twój tekst: ***%s***" % text)
-
-
 help(palindrom)
