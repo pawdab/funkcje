@@ -27,6 +27,7 @@ def kalkulator(dzialanie, liczba1, liczba2):
     liczby = [liczba1, liczba2]
     if dzialanie == 1:
 #alternatywą (pewnie trochę lepszą) było by przeniesienie inputu tutaj i zapytanie użyttkownika ile licz chce dodawać [mnożyć] i zapętlić pytanie tyle razy żeby podał te liczby
+# wtedy nie trzeba by pytać czy chce kolejną
         wynik[1] = "Dodaje"
         odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
