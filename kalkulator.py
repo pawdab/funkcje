@@ -60,9 +60,9 @@ if __name__ == "__main__":
         liczba1 = konwertuj("podaj liczbe1: ", float)
         liczba2 = konwertuj("podaj liczbe2: ", float)
     else:
-        dzialanie = (sys.argv[1])
-        liczba1 = (sys.argv[2])
-        liczba2 = (sys.argv[3])
+        dzialanie = int(sys.argv[1])
+        liczba1 = float(sys.argv[2])
+        liczba2 = float(sys.argv[3])
 else:
     dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
     liczba1 = konwertuj("podaj liczbe1: ", float)
