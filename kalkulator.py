@@ -1,6 +1,7 @@
 import sys
 import logging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile_kalkulator.log")
+#logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s', filename="logfile_kalkulator.log")
+logging.basicConfig(level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 def konwertuj(text, typ):
     liczba = input(text)
@@ -82,7 +83,7 @@ else:
 
 wynik = kalkulator(dzialanie, liczba1, liczba2)
 logging.debug("Program został uruchomiony z następującymi parametrami: %s" % sys.argv[1:])
-logging.debug("%s liczby %s oraz %s" % (wynik[1], liczba1, liczba2))
+logging.debug("%s liczby %s" % (wynik[1], wynik[2]))
 
 print(f"{wynik[1]} liczby {wynik[2]} co daje {wynik[0]}")
 
