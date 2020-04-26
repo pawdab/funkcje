@@ -1,6 +1,7 @@
 def palindrom(word):
     """
     Checks if word is palindorme
+    
     """
 
     lenght = len(word)
