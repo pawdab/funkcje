@@ -25,6 +25,7 @@ def kalkulator(dzialanie, liczba1, liczba2):
     wynik = [None, None, None]
     liczby = [liczba1, liczba2]
     if dzialanie == 1:
+#alternatywą (pewnie trochę lepszą) było by przeniesienie inputu tutaj i zapytanie użyttkownika ile licz chce dodawać [mnożyć] i zapętlić pytanie tyle razy żeby podał te liczby
         wynik[1] = "Dodaje"
         odpowiedz = input("czy checsz dodać kolejną liczbe? [T/N]: ")
         while odpowiedz != "N":
@@ -60,9 +61,18 @@ if __name__ == "__main__":
         liczba1 = konwertuj("podaj liczbe1: ", float)
         liczba2 = konwertuj("podaj liczbe2: ", float)
     else:
-        dzialanie = int(sys.argv[1])
-        liczba1 = float(sys.argv[2])
-        liczba2 = float(sys.argv[3])
+        try:
+            dzialanie = int(sys.argv[1])
+        except:
+            dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
+        try:
+            liczba1 = float(sys.argv[2])
+        except:
+            liczba1 = konwertuj("podaj liczbe1: ", float)
+        try:
+            liczba2 = float(sys.argv[3])
+        except:
+            liczba2 = konwertuj("podaj liczbe2: ", float)
 else:
     dzialanie = konwertuj("Podaj działanie. 1 - Dodawanie, 2- Odejmowanie, 3 - mnozenie, 4 - dzielenie", int)
     liczba1 = konwertuj("podaj liczbe1: ", float)

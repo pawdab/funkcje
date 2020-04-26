@@ -42,3 +42,7 @@
 2020-04-26 14:55:57,384 Dodaje liczby 2.0 oraz 3.0
 2020-04-26 14:57:49,392 Program zosta³ uruchomiony z nastêpuj¹cymi parametrami: []
 2020-04-26 14:57:49,393 Mno¿e liczby 2.0 oraz 3.0
+2020-04-26 17:19:55,911 Program zosta³ uruchomiony z nastêpuj¹cymi parametrami: ['cos', 'osiem', '1dwanascie']
+2020-04-26 17:19:55,917 Odejmuje liczby 3.0 oraz 3.0
+2020-04-26 17:20:12,972 Program zosta³ uruchomiony z nastêpuj¹cymi parametrami: ['cos', '8', '1dwanascie']
+2020-04-26 17:20:12,972 Mno¿e liczby 8.0 oraz 3.0
